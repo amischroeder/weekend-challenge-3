@@ -10,6 +10,18 @@ $(document).ready(function () {
         }
         postTask(inputObject);
     });
+
+     $('#taskList').on('click', '.deleteButton', function () {
+    console.log('delete task')
+    var taskId = $(this).parent().data().id;
+    $.ajax({
+      method: 'DELETE',
+      url: '/tasks/' + taskId,
+      success: function(response) {
+        getTasks();
+      }
+    })
+  })
 }); //end doc ready
 
 function postTask(newTask) {
