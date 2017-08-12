@@ -44,7 +44,8 @@ function displayTasks(tasksArray) {
         var $taskDiv = $('<div></div>');
         $taskDiv.data('id', task.id);
         $taskDiv.append('<div class="taskClass">' + task.task + '</div>');
-        $taskDiv.append('<button class="deleteButton">Delete Task</button>')
+        $taskDiv.append('<button class="deleteButton">Delete Task</button>');
+        $taskDiv.append('<button class="completeButton">Completed</button>')
         $('#taskList').prepend($taskDiv);
     }
 }
