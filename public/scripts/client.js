@@ -8,6 +8,7 @@ $(document).ready(function () {
         var inputObject = {
             task: taskIn
         }
+        postTask(inputObject);
     });
 }); //end doc ready
 
@@ -40,5 +41,9 @@ function displayTasks(tasksArray) {
     $('#taskList').empty();
     for(var i=0; i<tasksArray.length; i++) {
         var task = tasksArray[i];
+        var $taskDiv = $('<div></div>');
+        $taskDiv.data('id', task.id);
+        $taskDiv.append('<div class="taskClass">' + task.task + '</div>');
+        $('#taskList').prepend($taskDiv);
     }
 }
