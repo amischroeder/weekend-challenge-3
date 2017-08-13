@@ -8,8 +8,14 @@ $(document).ready(function () {
         var inputObject = {
             task: taskIn
         }
-        postTask(inputObject);
+        postTask(inputObject);        
     });
+
+     $('#taskList').on('click', '.completeButton', function(){
+          console.log('completed button clicked');
+            $(this).parent().css("background-color", "gray" );
+            //DO UPDATE METHOD AJAX
+        }); 
 
      $('#taskList').on('click', '.deleteButton', function () {
     console.log('delete task')
