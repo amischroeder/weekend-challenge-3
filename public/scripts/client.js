@@ -15,8 +15,6 @@ $(document).ready(function () {
 
   $('#taskList').on('click', '.completeButton', function () {
     console.log('completed button clicked');
-    // $(this).parent().css("background-color", "gray");
-    // $(this).parent().append('&#10003;');
     var taskId = $(this).parent().data().id;
     $.ajax({
       method: 'PUT',
@@ -75,7 +73,6 @@ function displayTasks(tasksArray) {
     $taskTable.data('id', task.id);
     $taskTable.append('<td class="taskClass">' + task.task + '</td>');
     $taskTable.append('<td class="statusClass">' + task.status + '</td>');
-    // $taskTable.append('<button class="completeButton">Complete</button>');
     $taskTable.append('<button class="deleteButton">Delete Task</button>');
     if (task.status === false) {
       $taskTable.append('<button class="completeButton">Complete</button>');
@@ -84,7 +81,6 @@ function displayTasks(tasksArray) {
       $taskTable.css("background-color", "gray");
       $taskTable.append('&#10003;');
     };
-    // $taskDiv.append('<input id="checkBox" type="checkbox">');
     $('#taskList').prepend($taskTable);
   }
 }
