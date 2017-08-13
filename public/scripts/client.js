@@ -75,8 +75,11 @@ function displayTasks(tasksArray) {
     $taskTable.data('id', task.id);
     $taskTable.append('<td class="taskClass">' + task.task + '</td>');
     $taskTable.append('<td class="statusClass">' + task.status + '</td>');
-    $taskTable.append('<button class="completeButton">Complete</button>');
+    // $taskTable.append('<button class="completeButton">Complete</button>');
     $taskTable.append('<button class="deleteButton">Delete Task</button>');
+    if (task.status === false) {
+      $taskTable.append('<button class="completeButton">Complete</button>');
+    };
     if (task.status === true) {
       $taskTable.css("background-color", "gray");
       $taskTable.append('&#10003;');
