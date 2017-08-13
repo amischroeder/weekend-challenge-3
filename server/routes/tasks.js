@@ -30,8 +30,8 @@ router.post('/', function(req, res){
 			res.sendStatus(500);
 		} else {
 			// when connecting to database worked!
-            client.query('INSERT INTO tasks (task) VALUES ($1);', 
-            [req.body.task], function(errorMakingQuery, result) {
+            client.query('INSERT INTO tasks (task, status) VALUES ($1, $2);', 
+            [req.body.task, req.body.status], function(errorMakingQuery, result) {
 				done();
 				if(errorMakingQuery) {
 					console.log('Error making database query', errorMakingQuery);

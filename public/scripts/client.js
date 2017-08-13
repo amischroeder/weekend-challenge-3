@@ -5,8 +5,10 @@ $(document).ready(function () {
     $('#addButton').on('click', function(){
         console.log('Add button clicked!');
         var taskIn = $('#taskIn').val();
+        var statusIn = $('#statusIn').val();
         var inputObject = {
-            task: taskIn
+            task: taskIn,
+            status: statusIn
         }
         postTask(inputObject);        
     });
@@ -61,12 +63,13 @@ function displayTasks(tasksArray) {
     $('#taskIn').val('');
     for(var i=0; i<tasksArray.length; i++) {
         var task = tasksArray[i];
-        var $taskDiv = $('<div></div>');
-        $taskDiv.data('id', task.id);
-        $taskDiv.append('<div class="taskClass">' + task.task + '</div>');
-        $taskDiv.append('<button class="deleteButton">Delete Task</button>');
-        $taskDiv.append('<button class="completeButton">Completed</button>');
+        var $taskTable = $('<tr></tr>');
+        $taskTable.data('id', task.id);
+        $taskTable.append('<td class="taskClass">' + task.task + '</td>');
+        $taskTable.append('<td class="statusClass">' + task.status + '</td>');
+        $taskTable.append('<button class="completeButton">Complete</button>');
+        $taskTable.append('<button class="deleteButton">Delete Task</button>');
         // $taskDiv.append('<input id="checkBox" type="checkbox">');
-        $('#taskList').prepend($taskDiv);
+        $('#taskList').prepend($taskTable);
     }
 }
