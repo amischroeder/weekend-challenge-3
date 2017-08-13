@@ -9,7 +9,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.use('/tasks', tasks);
 
-// Start listening for requests on a specific port
 app.listen(port, function(){
   console.log('listening on port', port);
 });

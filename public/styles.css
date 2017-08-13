@@ -1,3 +1,7 @@
 #taskList {
     background-color: lightskyblue;
 };
+
+/* #checkBox:checked ~ div #taskList{
+    background-color:blue;
+} */

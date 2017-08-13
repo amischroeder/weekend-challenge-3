@@ -14,6 +14,7 @@ $(document).ready(function () {
      $('#taskList').on('click', '.completeButton', function(){
           console.log('completed button clicked');
             $(this).parent().css("background-color", "gray" );
+            $(this).parent().append('&#10003;');
             //DO UPDATE METHOD AJAX
         }); 
 
@@ -65,6 +66,7 @@ function displayTasks(tasksArray) {
         $taskDiv.append('<div class="taskClass">' + task.task + '</div>');
         $taskDiv.append('<button class="deleteButton">Delete Task</button>');
         $taskDiv.append('<button class="completeButton">Completed</button>');
+        // $taskDiv.append('<input id="checkBox" type="checkbox">');
         $('#taskList').prepend($taskDiv);
     }
 }
