@@ -26,15 +26,21 @@ $(document).ready(function () {
   });
 
   $('#taskList').on('click', '.deleteButton', function () {
-    console.log('delete task')
+    console.log('delete task');
     var taskId = $(this).parent().data().id;
-    $.ajax({
-      method: 'DELETE',
-      url: '/tasks/' + taskId,
-      success: function (response) {
-        getTasks();
-      }
-    })
+    var txt;
+    var r = confirm("You really want to delete this task?");
+    if (r == true) {
+      $.ajax({
+        method: 'DELETE',
+        url: '/tasks/' + taskId,
+        success: function (response) {
+          getTasks();
+        }
+      })
+    } else {
+      txt = "You pressed Cancel!";
+    }
   })
 }); //end doc ready
 
